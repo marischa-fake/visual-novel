@@ -169,6 +169,10 @@ function typeText(el, text, speed, callback) {
       if (pendingNext) {
         document.querySelector(".click-indicator").classList.add("visible");
       }
+      // Show click indicator for ending nodes
+      if (pendingEnding) {
+        document.querySelector(".click-indicator").classList.add("visible");
+      }
       if (callback) callback();
     }
   }, speed || 30);
@@ -190,6 +194,10 @@ textEl.parentElement.addEventListener("click", () => {
     if (pendingNext) {
       document.querySelector(".click-indicator").classList.add("visible");
     }
+    // Show click indicator for ending nodes
+    if (pendingEnding) {
+      document.querySelector(".click-indicator").classList.add("visible");
+    }
     return;
   }
 
@@ -201,6 +209,37 @@ textEl.parentElement.addEventListener("click", () => {
     document.querySelector(".click-indicator").classList.remove("visible");
     show(next);
   }
+
+  // If typing done and there's a pending ending — show overlay on click
+  if (typingDone && pendingEnding) {
+    playClick();
+    const node = pendingEnding;
+    pendingEnding = null;
+    endingTitleEl.textContent = node.endingTitle || "КОНЦОВКА";
+    endingTitleEl.className = "ending-title " + node.endingType;
+    endingDescEl.textContent = node.endingDesc || "";
+    endingOverlay.classList.add("visible");
+
+    node.choices.forEach(choice => {
+      const btn = document.createElement("button");
+      btn.textContent = choice.text;
+      btn.className = "ending-btn";
+      btn.onclick = () => {
+        playClick();
+        endingOverlay.classList.remove("visible");
+        if (choice.next === "start_menu") {
+          deleteSave();
+          gameScreen.style.display = "none";
+          titleScreen.style.display = "";
+          titleScreen.classList.remove("hidden");
+          btnContinue.classList.add("disabled");
+        } else {
+          show(choice.next);
+        }
+      };
+      endingOverlay.appendChild(btn);
+    });
+  }
 });
 
 const endingOverlay = document.getElementById("ending-overlay");
@@ -208,6 +247,7 @@ const endingTitleEl = document.getElementById("ending-title");
 const endingDescEl = document.getElementById("ending-desc");
 
 let currentFullText = "";
+let pendingEnding = null;
 
 // ── Story data ──
 const story = {
@@ -706,46 +746,16 @@ function show(id) {
     pendingNext = null;
     document.querySelector(".click-indicator").classList.remove("visible");
     endingOverlay.classList.remove("visible");
+    endingOverlay.innerHTML = "";
+    endingOverlay.appendChild(endingTitleEl);
+    endingOverlay.appendChild(endingDescEl);
 
     setTimeout(() => {
       if (node.endingType === "good") playEndGood();
       else playEndBad();
     }, 500);
 
-    setTimeout(() => {
-      endingTitleEl.textContent = node.endingTitle || "КОНЦОВКА";
-      endingTitleEl.className = "ending-title " + node.endingType;
-      endingDescEl.textContent = node.endingDesc || "";
-      endingOverlay.classList.add("visible");
-
-      // Show restart button on overlay
-      endingOverlay.innerHTML = "";
-      endingOverlay.appendChild(endingTitleEl);
-      endingOverlay.appendChild(endingDescEl);
-    }, 800);
-
-    setTimeout(() => {
-      node.choices.forEach(choice => {
-        const btn = document.createElement("button");
-        btn.textContent = choice.text;
-        btn.className = "ending-btn";
-        btn.onclick = () => {
-          playClick();
-          endingOverlay.classList.remove("visible");
-          if (choice.next === "start_menu") {
-            // Return to title screen
-            deleteSave();
-            gameScreen.style.display = "none";
-            titleScreen.style.display = "";
-            titleScreen.classList.remove("hidden");
-            btnContinue.classList.add("disabled");
-          } else {
-            show(choice.next);
-          }
-        };
-        endingOverlay.appendChild(btn);
-      });
-    }, 1500);
+    pendingEnding = node;
     return;
   }
 
