@@ -225,6 +225,108 @@ body {
 .scene.village    { background: linear-gradient(135deg, #2a2520 0%, #1a1510 100%); }
 .scene.night      { background: linear-gradient(135deg, #0a0a18 0%, #050510 100%); }
 
+/* ── Title Screen ── */
+.title-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease;
+}
+
+.title-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.title-bg {
+  position: absolute;
+  inset: 0;
+  background: url('игра/title-screen.jpg') center/cover no-repeat;
+}
+
+.title-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+.title-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.title-text {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8), 0 0 40px rgba(100, 160, 240, 0.2);
+  margin-bottom: 8px;
+}
+
+.title-subtitle {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 48px;
+}
+
+.title-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.title-btn {
+  width: 240px;
+  padding: 14px 0;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #d0d8e8;
+  background: rgba(10, 10, 30, 0.75);
+  border: 1px solid rgba(142, 202, 247, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.title-btn:hover {
+  background: rgba(30, 40, 80, 0.85);
+  border-color: rgba(142, 202, 247, 0.5);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(100, 160, 240, 0.15);
+}
+
+.title-btn:active {
+  transform: translateY(0);
+}
+
+.title-btn.disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ── Ending overlay ── */
 .ending-overlay {
   position: absolute;

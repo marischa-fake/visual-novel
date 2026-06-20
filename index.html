@@ -8,32 +8,48 @@
 <body>
 
   <div class="game">
-    <div id="scene" class="scene">
-      <div class="scene-overlay"></div>
-      <div class="scene-title" id="scene-title"></div>
-    </div>
-
-    <div class="dialog-box">
-      <div class="speaker-name" id="speaker-name"></div>
-      <div class="dialog-text" id="text"></div>
-      <div class="click-indicator">
-        <span class="triangle"></span>
+    <!-- Title Screen -->
+    <div class="title-screen" id="title-screen">
+      <div class="title-bg"></div>
+      <div class="title-content">
+        <h1 class="title-text">СОСНОВКА</h1>
+        <p class="title-subtitle">МЕНТОВСКОЙ ЛЕС</p>
+        <div class="title-buttons">
+          <button class="title-btn" id="btn-new-game">Начать игру</button>
+          <button class="title-btn" id="btn-continue">Продолжить</button>
+        </div>
       </div>
     </div>
 
-    <div id="choices" class="choices"></div>
+    <!-- Game Screen -->
+    <div class="game-screen" id="game-screen" style="display:none;">
+      <div id="scene" class="scene">
+        <div class="scene-overlay"></div>
+        <div class="scene-title" id="scene-title"></div>
+      </div>
 
-    <div class="ending-overlay" id="ending-overlay">
-      <div class="ending-title" id="ending-title"></div>
-      <div class="ending-desc" id="ending-desc"></div>
-    </div>
+      <div class="dialog-box">
+        <div class="speaker-name" id="speaker-name"></div>
+        <div class="dialog-text" id="text"></div>
+        <div class="click-indicator">
+          <span class="triangle"></span>
+        </div>
+      </div>
 
-    <div class="save-indicator" id="save-indicator"></div>
+      <div id="choices" class="choices"></div>
 
-    <div class="save-load-bar">
-      <button class="save-btn" id="save-btn" title="Сохранить">💾</button>
-      <button class="save-btn" id="load-btn" title="Загрузить">📂</button>
-      <button class="save-btn" id="restart-btn" title="Начать сначала">🔄</button>
+      <div class="ending-overlay" id="ending-overlay">
+        <div class="ending-title" id="ending-title"></div>
+        <div class="ending-desc" id="ending-desc"></div>
+      </div>
+
+      <div class="save-indicator" id="save-indicator"></div>
+
+      <div class="save-load-bar">
+        <button class="save-btn" id="save-btn" title="Сохранить">💾</button>
+        <button class="save-btn" id="load-btn" title="Загрузить">📂</button>
+        <button class="save-btn" id="restart-btn" title="Начать сначала">🔄</button>
+      </div>
     </div>
   </div>
 

@@ -650,7 +650,11 @@ function showSaveIndicator(msg) {
 // ── Show scene ──
 function show(id) {
   if (id === "start_menu") {
-    show("intro_1");
+    deleteSave();
+    gameScreen.style.display = "none";
+    titleScreen.style.display = "";
+    titleScreen.classList.remove("hidden");
+    btnContinue.classList.add("disabled");
     return;
   }
 
@@ -728,7 +732,16 @@ function show(id) {
         btn.onclick = () => {
           playClick();
           endingOverlay.classList.remove("visible");
-          show(choice.next);
+          if (choice.next === "start_menu") {
+            // Return to title screen
+            deleteSave();
+            gameScreen.style.display = "none";
+            titleScreen.style.display = "";
+            titleScreen.classList.remove("hidden");
+            btnContinue.classList.add("disabled");
+          } else {
+            show(choice.next);
+          }
         };
         endingOverlay.appendChild(btn);
       });
@@ -786,10 +799,44 @@ document.getElementById("restart-btn").addEventListener("click", (e) => {
   choicesEl.classList.remove("visible");
   choicesEl.innerHTML = "";
   deleteSave();
-  show("intro_1");
+  // Return to title screen
+  gameScreen.style.display = "none";
+  titleScreen.style.display = "";
+  titleScreen.classList.remove("hidden");
+  btnContinue.classList.add("disabled");
 });
 
-// ── Start game (load if save exists, else intro) ──
-if (!loadGame()) {
-  show("intro_1");
+// ── Title Screen Logic ──
+const titleScreen = document.getElementById("title-screen");
+const gameScreen = document.getElementById("game-screen");
+const btnNewGame = document.getElementById("btn-new-game");
+const btnContinue = document.getElementById("btn-continue");
+
+function startGame(load) {
+  titleScreen.classList.add("hidden");
+  setTimeout(() => {
+    titleScreen.style.display = "none";
+    gameScreen.style.display = "";
+    if (load) {
+      loadGame();
+    } else {
+      show("intro_1");
+    }
+  }, 800);
 }
+
+// Check if save exists
+if (!hasSave()) {
+  btnContinue.classList.add("disabled");
+}
+
+btnNewGame.addEventListener("click", () => {
+  deleteSave();
+  startGame(false);
+});
+
+btnContinue.addEventListener("click", () => {
+  if (hasSave()) {
+    startGame(true);
+  }
+});
