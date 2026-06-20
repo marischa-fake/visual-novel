@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Визуальная новелла</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="game">
+    <div id="scene" class="scene">
+      <div class="scene-overlay"></div>
+      <div class="scene-title" id="scene-title"></div>
+    </div>
+
+    <div class="dialog-box">
+      <div class="speaker-name" id="speaker-name"></div>
+      <div class="dialog-text" id="text"></div>
+      <div class="click-indicator">
+        <span class="triangle"></span>
+      </div>
+    </div>
+
+    <div id="choices" class="choices"></div>
+
+    <div class="ending-overlay" id="ending-overlay">
+      <div class="ending-title" id="ending-title"></div>
+      <div class="ending-desc" id="ending-desc"></div>
+    </div>
+
+    <div class="save-indicator" id="save-indicator"></div>
+
+    <div class="save-load-bar">
+      <button class="save-btn" id="save-btn" title="Сохранить">💾</button>
+      <button class="save-btn" id="load-btn" title="Загрузить">📂</button>
+      <button class="save-btn" id="restart-btn" title="Начать сначала">🔄</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
