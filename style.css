@@ -192,27 +192,27 @@ body {
 }
 
 /* ── Scene backgrounds (images) ── */
-.scene.bg-digging        { background: url('assets/bg/digging.jpg') center/cover no-repeat; }
-.scene.bg-found-item     { background: url('assets/bg/found-item.jpg') center/cover no-repeat; }
-.scene.bg-forest-stand   { background: url('assets/bg/forest-stand.jpg') center/cover no-repeat; }
-.scene.bg-face-to-face   { background: url('assets/bg/face-to-face.jpg') center/cover no-repeat; }
-.scene.bg-portrait       { background: url('assets/bg/portrait.jpg') center/cover no-repeat; }
-.scene.bg-forest-calm    { background: url('assets/bg/forest-calm.jpg') center/cover no-repeat; }
-.scene.bg-traces         { background: url('assets/bg/traces.jpg') center/cover no-repeat; }
-.scene.bg-walking-away   { background: url('assets/bg/walking-away.jpg') center/cover no-repeat; }
-.scene.bg-hold-item      { background: url('assets/bg/hold-item.jpg') center/cover no-repeat; }
-.scene.bg-walking-together { background: url('assets/bg/walking-together.jpg') center/cover no-repeat; }
-.scene.bg-coords-tree    { background: url('assets/bg/coords-tree.jpg') center/cover no-repeat; }
-.scene.bg-coords-empty   { background: url('assets/bg/coords-empty.jpg') center/cover no-repeat; }
-.scene.bg-evidence-dirt  { background: url('assets/bg/evidence-dirt.jpg') center/cover no-repeat; }
-.scene.bg-scared         { background: url('assets/bg/scared.jpg') center/cover no-repeat; }
-.scene.bg-station        { background: url('assets/bg/station.jpg') center/cover no-repeat; }
-.scene.bg-station-planted { background: url('assets/bg/station-planted.jpg') center/cover no-repeat; }
-.scene.bg-station-bribe-low { background: url('assets/bg/station-bribe-low.jpg') center/cover no-repeat; }
-.scene.bg-bribe-accepted { background: url('assets/bg/bribe-accepted.jpg') center/cover no-repeat; }
-.scene.bg-station-bribe-mid { background: url('assets/bg/station-bribe-mid.jpg') center/cover no-repeat; }
-.scene.bg-toilet-split   { background: url('assets/bg/toilet-split.png') center/cover no-repeat; }
-.scene.bg-phone-check    { background: url('assets/bg/phone-check.jpg') center/cover no-repeat; }
+.scene.bg-digging        { background: url('игра/digging.jpg') center/cover no-repeat; }
+.scene.bg-found-item     { background: url('игра/found-item.jpg') center/cover no-repeat; }
+.scene.bg-forest-stand   { background: url('игра/forest-stand.jpg') center/cover no-repeat; }
+.scene.bg-face-to-face   { background: url('игра/face-to-face.jpg') center/cover no-repeat; }
+.scene.bg-portrait       { background: url('игра/portrait.jpg') center/cover no-repeat; }
+.scene.bg-forest-calm    { background: url('игра/forest-calm.jpg') center/cover no-repeat; }
+.scene.bg-traces         { background: url('игра/traces.jpg') center/cover no-repeat; }
+.scene.bg-walking-away   { background: url('игра/walking-away.jpg') center/cover no-repeat; }
+.scene.bg-hold-item      { background: url('игра/hold-item.jpg') center/cover no-repeat; }
+.scene.bg-walking-together { background: url('игра/walking-together.jpg') center/cover no-repeat; }
+.scene.bg-coords-tree    { background: url('игра/coords-tree.jpg') center/cover no-repeat; }
+.scene.bg-coords-empty   { background: url('игра/coords-empty.jpg') center/cover no-repeat; }
+.scene.bg-evidence-dirt  { background: url('игра/evidence-dirt.jpg') center/cover no-repeat; }
+.scene.bg-scared         { background: url('игра/scared.jpg') center/cover no-repeat; }
+.scene.bg-station        { background: url('игра/station.jpg') center/cover no-repeat; }
+.scene.bg-station-planted { background: url('игра/station-planted.jpg') center/cover no-repeat; }
+.scene.bg-station-bribe-low { background: url('игра/station-bribe-low.jpg') center/cover no-repeat; }
+.scene.bg-bribe-accepted { background: url('игра/bribe-accepted.jpg') center/cover no-repeat; }
+.scene.bg-station-bribe-mid { background: url('игра/station-bribe-mid.jpg') center/cover no-repeat; }
+.scene.bg-toilet-split   { background: url('игра/toilet-split.png') center/cover no-repeat; }
+.scene.bg-phone-check    { background: url('игра/phone-check.jpg') center/cover no-repeat; }
 
 /* ── Scene color themes (fallbacks) ── */
 .scene.forest     { background: linear-gradient(135deg, #1a2e1a 0%, #0d1f0d 100%); }
